@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.hibernate.annotations.ManyToAny;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Produto  implements Serializable {
@@ -24,7 +25,8 @@ public class Produto  implements Serializable {
 	private String nome;
 	private Double preco;
 	
-	@ManyToAny
+	@JsonBackReference
+	@ManyToMany
 	@JoinTable(name="PRODUTO_CATEGORIA",
 			joinColumns = @JoinColumn(name= "produto_id"),
 			inverseJoinColumns = @JoinColumn(name = "categoria_id")
