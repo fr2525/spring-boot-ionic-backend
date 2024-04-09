@@ -2,6 +2,9 @@ package com.freinert.cursomc.domain;
 
 import com.freinert.cursomc.domain.enums.EstadoPagamento;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class PagamentoComCartao extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
